@@ -82,12 +82,7 @@ const QuestionPaperInputForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      !selectedChapter ||
-      !questionText ||
-      !questionTextTelugu ||
-      !questionType
-    ) {
+    if (!selectedChapter || !questionText || !questionTextTelugu || !questionType) {
       alert("All fields are required");
       return;
     }
@@ -113,134 +108,121 @@ const QuestionPaperInputForm = () => {
   };
 
   return (
-    <div
-      className="
-    flex 
-    justify-center 
-    items-center 
-    min-h-screen"
-    >
-      <div
-        className="
-      w-full 
-      max-w-[200mm]
-       bg-white p-8 
-       rounded-xl
-        shadow-lg 
-        border
-         border-gray-300"
-      >
-        <h2
-          className="
-        text-2xl
-         text-indigo-600 
-         font-semibold
-          text-center 
-          mb-4
-          "
-        >
+    <div className="flex justify-center items-center min-h-screen bg-gray-50 p-4">
+      <div className="w-full max-w-4xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-lg border border-gray-300">
+        
+        <h2 className="text-xl sm:text-2xl text-indigo-600 font-semibold text-center mb-6">
           Question Paper Input Form
         </h2>
 
-        <div className="bg-blue-00 text-gray-950 p-4 rounded-md shadow-2xl mb-4">
-          <h3 className="text-lg font-medium mb-2">Add New Subject</h3>
-          <input
-            type="text"
-            value={subjectName}
-            onChange={(e) => setSubjectName(e.target.value)}
-            placeholder="Enter Subject Name"
-            className="p-2 border rounded w-full mb-1"
-          />
-          <input
-            type="number"
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-            placeholder="Enter Year (1 or 2)"
-            className="p-2 border rounded w-full mb-1"
-          />
+        {/* Add Subject */}
+        <div className="bg-gray-100 text-gray-950 p-4 rounded-md shadow mb-6">
+          <h3 className="text-lg font-medium mb-3">Add New Subject</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <input
+              type="text"
+              value={subjectName}
+              onChange={(e) => setSubjectName(e.target.value)}
+              placeholder="Enter Subject Name"
+              className="p-2 border rounded w-full"
+            />
+            <input
+              type="number"
+              value={year}
+              onChange={(e) => setYear(e.target.value)}
+              placeholder="Enter Year (1 or 2)"
+              className="p-2 border rounded w-full"
+            />
+          </div>
           <button
             onClick={handleAddSubject}
-            className="bg-green-600 text-white py-2 rounded w-full"
+            className="mt-3 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded w-full sm:w-auto"
           >
             Add Subject
           </button>
         </div>
 
-        <div className="bg-gray-100 text-gray-950 p-4 rounded-md shadow-2xl mb-4">
-          <h3 className="text-lg font-medium mb-2">Add New Chapter</h3>
-          <select
-            value={chapterSubject}
-            onChange={(e) => setChapterSubject(e.target.value)}
-            className="p-2 border rounded w-full mb-1"
-          >
-            <option value="">Select Subject</option>
-            {subjects.map((sub) => (
-              <option key={sub._id} value={sub._id}>
-                {sub.name}
-              </option>
-            ))}
-          </select>
-          <input
-            type="text"
-            value={chapterName}
-            onChange={(e) => setChapterName(e.target.value)}
-            placeholder="Enter Chapter Name"
-            className="p-2 border rounded w-full mb-1"
-          />
+        {/* Add Chapter */}
+        <div className="bg-gray-100 text-gray-950 p-4 rounded-md shadow mb-6">
+          <h3 className="text-lg font-medium mb-3">Add New Chapter</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <select
+              value={chapterSubject}
+              onChange={(e) => setChapterSubject(e.target.value)}
+              className="p-2 border rounded w-full"
+            >
+              <option value="">Select Subject</option>
+              {subjects.map((sub) => (
+                <option key={sub._id} value={sub._id}>
+                  {sub.name}
+                </option>
+              ))}
+            </select>
+            <input
+              type="text"
+              value={chapterName}
+              onChange={(e) => setChapterName(e.target.value)}
+              placeholder="Enter Chapter Name"
+              className="p-2 border rounded w-full"
+            />
+          </div>
           <button
             onClick={handleAddChapter}
-            className="bg-blue-600 text-white py-2 rounded w-full"
+            className="mt-3 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded w-full sm:w-auto"
           >
             Add Chapter
           </button>
         </div>
 
-        <div className="bg-gray-100 mt-4 text-gray-950 p-4 rounded-md shadow-2xl mb-4">
-          <h3 className="text-lg font-medium mb-2">Add New Question</h3>
-          <form onSubmit={handleSubmit} className="grid gap-2">
-            <select
-              value={selectedSubject}
-              onChange={(e) => setSelectedSubject(e.target.value)}
-              className="p-2 border rounded"
-            >
-              <option value="">Select Subject</option>
-              {subjects.map((sub) => (
-                <option key={sub._id} value={sub._id}>
-                  {sub.name} - {sub.year} Year
-                </option>
-              ))}
-            </select>
+        {/* Add Question */}
+        <div className="bg-gray-100 text-gray-950 p-4 rounded-md shadow">
+          <h3 className="text-lg font-medium mb-3">Add New Question</h3>
+          <form onSubmit={handleSubmit} className="grid gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <select
+                value={selectedSubject}
+                onChange={(e) => setSelectedSubject(e.target.value)}
+                className="p-2 border rounded"
+              >
+                <option value="">Select Subject</option>
+                {subjects.map((sub) => (
+                  <option key={sub._id} value={sub._id}>
+                    {sub.name} - {sub.year} Year
+                  </option>
+                ))}
+              </select>
 
-            <select
-              value={selectedChapter}
-              onChange={(e) => setSelectedChapter(e.target.value)}
-              className="p-2 border rounded"
-            >
-              <option value="">Select Chapter</option>
-              {chapters.map((chap) => (
-                <option key={chap._id} value={chap._id}>
-                  {chap.name}
-                </option>
-              ))}
-            </select>
+              <select
+                value={selectedChapter}
+                onChange={(e) => setSelectedChapter(e.target.value)}
+                className="p-2 border rounded"
+              >
+                <option value="">Select Chapter</option>
+                {chapters.map((chap) => (
+                  <option key={chap._id} value={chap._id}>
+                    {chap.name}
+                  </option>
+                ))}
+              </select>
+            </div>
 
             <textarea
               value={questionText}
               onChange={(e) => setQuestionText(e.target.value)}
               placeholder="Enter Question in English"
-              className="p-2 border rounded w-full"
+              className="p-2 border rounded w-full min-h-[80px]"
               required
             />
             <textarea
               value={questionTextTelugu}
               onChange={(e) => setQuestionTextTelugu(e.target.value)}
               placeholder="ప్రశ్నను తెలుగు లో నమోదు చేయండి"
-              className="p-2 border rounded w-full"
+              className="p-2 border rounded w-full min-h-[80px]"
               required
             />
 
-            {/* Question Type Selection */}
-            <div className="flex items-center gap-2">
+            {/* Question Type */}
+            <div className="flex flex-wrap items-center gap-4">
               <label className="flex items-center">
                 <input
                   type="radio"
@@ -265,7 +247,7 @@ const QuestionPaperInputForm = () => {
 
             <button
               type="submit"
-              className="bg-cyan-600 text-white py-2 rounded w-full"
+              className="bg-cyan-600 hover:bg-cyan-700 text-white py-2 px-4 rounded w-full sm:w-auto"
             >
               Add Question
             </button>

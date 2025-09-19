@@ -20,11 +20,11 @@ function Dashboard() {
                 <h2 className="text-lg sm:text-xl  font-semibold text-gray-800">QP Input Form</h2>
                 <p className="text-gray-500 text-sm sm:text-base">Create new question paper templates</p>
               </div>
-              
+
             </div>
           </Link>
 
-          <Link to="/generate-paper" className="bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1 w-full">
+          <Link to="/generate-paper" className="bg-amber-100 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1 w-full">
             <div className="p-6 flex items-center sm:items-start">
               <div className="bg-green-100 p-4 rounded-full mr-4">
                 <span className="text-green-600 text-2xl">📄</span>
