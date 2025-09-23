@@ -1,3 +1,4 @@
+//app/src/components/QuestionPaperForm.js
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Question from "./Question";
@@ -82,8 +83,8 @@ const QuestionPaperForm = () => {
   };
 
   return (
-    <div className="p-4 sm:p-6 border border-gray-200 mb-2 min-h-screen">
-      <div className="w-full max-w-sm mx-auto bg-white shadow-2xl rounded-2xl p-6 sm:p-2 overflow-hidden">
+
+      <div className="w-full max-w-sm mx-auto bg-zinc-200 shadow-2xl rounded-2xl p-6 sm:p-2 overflow-hidden">
         <h2 className="text-xl sm:text-xl mt-2  font-bold text-center text-blue-950 mb-4">
           📖 M&AT QUESTION PAPER GENERATOR
         </h2>
@@ -329,7 +330,7 @@ const QuestionPaperForm = () => {
             <Question filters={filters} />
           ))}
       </div>
-    </div>
+   
   );
 };
 

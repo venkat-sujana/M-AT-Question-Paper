@@ -1,12 +1,12 @@
 // src/components/QuestionPaper.js
-
 import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
+import html2pdf from "html2pdf.js";
 
 const QuestionPaper = ({ filters }) => {
   const printRef = useRef();
 
-  // react-to-print handler
+  // Print/Export (react-to-print)
   const handlePrint = useReactToPrint({
     content: () => printRef.current,
     documentTitle: "Question Paper",
@@ -23,6 +23,19 @@ const QuestionPaper = ({ filters }) => {
       .no-print { display: none !important; }
     `,
   });
+
+  // Direct PDF Download (html2pdf.js)
+  const handleDownload = () => {
+    const element = printRef.current;
+    const opt = {
+      margin: 0.5,
+      filename: "question-paper.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+    };
+    html2pdf().set(opt).from(element).save();
+  };
 
   if (
     !filters ||
@@ -49,15 +62,6 @@ const QuestionPaper = ({ filters }) => {
         ref={printRef}
         className="w-full max-w-4xl lg:w-[210mm] bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-300 relative print:w-full print:shadow-none print:border-0"
       >
-        {/* Watermark */}
-        <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-          <img
-            src="/images/apbise.png"
-            alt="Watermark"
-            className="opacity-10 w-48 h-48 sm:w-60 sm:h-60 print:opacity-20"
-          />
-        </div>
-
         {/* HEADER */}
         <div className="text-center mt-2 sm:mt-4 border-b-2 pb-4">
           <h1 className="text-2xl sm:text-3xl font-bold font-serif uppercase text-gray-900 tracking-wide">
@@ -84,12 +88,10 @@ const QuestionPaper = ({ filters }) => {
         </p>
 
         <ol className="pl-6 list-decimal question-list text-gray-900 text-base leading-relaxed mt-2 space-y-2">
-          {shortQuestions.map((q, index) => (
+          {shortQuestions.map((q) => (
             <li key={q._id}>
               {q.questionText} <br />
-              <span className="text-gray-700 italic">
-                {q.questionTextTelugu}
-              </span>
+              <span className="text-gray-700 italic">{q.questionTextTelugu}</span>
             </li>
           ))}
         </ol>
@@ -107,12 +109,10 @@ const QuestionPaper = ({ filters }) => {
           className="pl-6 list-decimal question-list text-gray-900 text-base leading-relaxed mt-2 space-y-3"
           start={shortQuestions.length + 1}
         >
-          {longQuestions.slice(0, 5).map((q, index) => (
+          {longQuestions.slice(0, 5).map((q) => (
             <li key={q._id}>
               {q.questionText} <br />
-              <span className="text-gray-700 italic">
-                {q.questionTextTelugu}
-              </span>
+              <span className="text-gray-700 italic">{q.questionTextTelugu}</span>
             </li>
           ))}
         </ol>
@@ -123,13 +123,21 @@ const QuestionPaper = ({ filters }) => {
         </div>
       </div>
 
-      {/* Print Button */}
-      <button
-        onClick={handlePrint}
-        className="mt-6 px-6 py-2 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-full shadow-md hover:scale-105 transform transition-all duration-300 no-print"
-      >
-        🖨️ Print / Export PDF
-      </button>
+      {/* Action Buttons */}
+      <div className="mt-6 flex flex-col sm:flex-row gap-3 no-print">
+        <button
+          onClick={handlePrint}
+          className="px-6 py-2 bg-green-600 text-white font-semibold rounded-full shadow-md hover:scale-105 transition-all"
+        >
+          🖨️ Print / Export PDF
+        </button>
+        <button
+          onClick={handleDownload}
+          className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:scale-105 transition-all"
+        >
+          📥 Download PDF
+        </button>
+      </div>
     </div>
   );
 };
