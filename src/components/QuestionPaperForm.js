@@ -85,7 +85,7 @@ const QuestionPaperForm = () => {
   return (
 
       <div className="w-full max-w-sm mx-auto bg-zinc-200 shadow-2xl rounded-2xl p-6 sm:p-2 overflow-hidden">
-        <h2 className="text-xl sm:text-xl mt-2  font-bold text-center text-blue-950 mb-4">
+        <h2 className="text-xl sm:text-xl mt-8  font-bold text-center text-gray-500 mb-4">
           📖 M&AT QUESTION PAPER GENERATOR
         </h2>
 
@@ -96,7 +96,7 @@ const QuestionPaperForm = () => {
         {/* Form inputs grid */}
         <div className="grid grid-cols-1 bg-blue-100 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Left column */}
-          <div className="space-y-6 bg-amber-200 p-4 rounded-2xl shadow-lg">
+          <div className="space-y-6 bg-amber-50 p-4 rounded-2xl shadow-lg">
             {[
               {
                 label: "College Name:",
@@ -219,7 +219,7 @@ const QuestionPaperForm = () => {
               <select
                 value={selectedSubject}
                 onChange={(e) => handleSubjectChange(e.target.value)}
-                className="w-full p-3 border-none rounded-xl shadow-lg focus:ring-2 focus:ring-indigo-400 transition-all bg-gray-50"
+                className="w-full p-3 border-none rounded-xl mb-4 shadow-lg focus:ring-2 focus:ring-indigo-400 transition-all bg-gray-50"
               >
                 <option value="">-- Select Subject --</option>
                 {subjects.map((subject) => (

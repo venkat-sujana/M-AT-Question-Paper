@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 function Dashboard() {
   return (
-    <div className="flex min-h-screen bg-gray-200">
+    <div className="flex min-h-screen bg-gray-300">
       {/* Main Content Only */}
       <div className="flex-1 p-4 sm:p-6">
-        <h1 className="text-2xl font-bold text-gray-800 mb-8 text-center sm:text-left mt-5">Dashboard</h1>
+        <h1 className="text-2xl font-bold text-gray-800 mb-8 text-center sm:text-left mt-8">Dashboard</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Tiles */}
           <Link to="/questionpaperinputform" className="bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1 w-full">

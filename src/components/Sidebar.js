@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <nav className="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
       <div className="mx-auto max-w-7xl flex items-center justify-between p-4">
-        <Link to="/" className="text-xl font-bold text-blue-500">QP Generator</Link>
+        <Link to="/" className="text-xl font-bold text-blue-500 mb-4">M&AT</Link>
         <button className="md:hidden text-2xl" onClick={() => setOpen(!open)}>
           ☰
         </button>

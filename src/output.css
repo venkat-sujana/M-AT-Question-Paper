@@ -1045,6 +1045,9 @@
   .border-white {
     border-color: var(--color-white);
   }
+  .bg-amber-50 {
+    background-color: var(--color-amber-50);
+  }
   .bg-amber-100 {
     background-color: var(--color-amber-100);
   }
@@ -1080,6 +1083,9 @@
   }
   .bg-gray-200 {
     background-color: var(--color-gray-200);
+  }
+  .bg-gray-300 {
+    background-color: var(--color-gray-300);
   }
   .bg-gray-500 {
     background-color: var(--color-gray-500);
