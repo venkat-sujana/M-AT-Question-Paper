@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Dashboard() {
   return (
-    <div className="flex min-h-screen bg-gray-300">
+    <div className="flex min-h-screen bg-gray-200 mt-16">
       {/* Main Content Only */}
       <div className="flex-1 p-4 sm:p-6">
         <h1 className="text-2xl font-bold text-gray-800 mb-8 text-center sm:text-left mt-8">Dashboard</h1>

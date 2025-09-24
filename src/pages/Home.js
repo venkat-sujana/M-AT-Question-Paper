@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-tr from-indigo-50 to-white">
+    <div className="min-h-screen flex flex-col bg-gradient-to-tr from-indigo-50 to-white mt-8">
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center py-16 px-4 bg-gradient-to-br from-indigo-600 to-blue-400">
         <div className="max-w-3xl w-full flex flex-col items-center">
@@ -28,7 +28,7 @@ const Home = () => {
       <section className="flex-1 max-w-6xl w-full mx-auto py-14 px-4">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Custom Templates */}
-          <div className="bg-white rounded-xl shadow hover:shadow-lg p-8 text-center transition group border border-gray-100">
+          <div className="bg-indigo-200 rounded-xl shadow hover:shadow-lg p-8 text-center transition group border border-gray-100">
             <div className="flex flex-col items-center mb-5">
               <span className="bg-indigo-100 text-indigo-500 rounded-full p-4 mb-2 text-3xl transition group-hover:bg-indigo-600 group-hover:text-white">📝</span>
             </div>
@@ -36,7 +36,7 @@ const Home = () => {
             <p className="text-gray-600">Design once, reuse anytime for any pattern or exam.</p>
           </div>
           {/* Smart Question Bank */}
-          <div className="bg-white rounded-xl shadow hover:shadow-lg p-8 text-center transition group border border-gray-100">
+          <div className="bg-green-200 rounded-xl shadow hover:shadow-lg p-8 text-center transition group border border-gray-100">
             <div className="flex flex-col items-center mb-5">
               <span className="bg-indigo-100 text-indigo-500 rounded-full p-4 mb-2 text-3xl transition group-hover:bg-indigo-600 group-hover:text-white">📚</span>
             </div>
@@ -44,7 +44,7 @@ const Home = () => {
             <p className="text-gray-600">Thousands of well-classified questions with instant search & filter.</p>
           </div>
           {/* AI Powered */}
-          <div className="bg-white rounded-xl shadow hover:shadow-lg p-8 text-center transition group border border-gray-100">
+          <div className="bg-blue-200 rounded-xl shadow hover:shadow-lg p-8 text-center transition group border border-gray-100">
             <div className="flex flex-col items-center mb-5">
               <span className="bg-indigo-100 text-indigo-500 rounded-full p-4 mb-2 text-3xl transition group-hover:bg-indigo-600 group-hover:text-white">🤖</span>
             </div>

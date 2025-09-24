@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center mt-16 justify-center p-4">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl w-full p-8">
         {/* అవతార్ మరియు టైటిల్ */}
         <div className="flex flex-col items-center mb-6">

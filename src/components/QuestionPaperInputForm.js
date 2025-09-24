@@ -108,7 +108,7 @@ const QuestionPaperInputForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50 p-4">
+    <div className="flex justify-center items-center min-h-screen bg-gray-50 p-4 mt-16">
       <div className="w-full max-w-4xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-lg border border-gray-300">
         
         <h2 className="text-xl sm:text-2xl text-indigo-600 font-semibold text-center mb-6">
