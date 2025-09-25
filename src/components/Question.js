@@ -1,7 +1,7 @@
+// frontend/src/components/Question.js
+//for Quarterly,Half yearly,prepublic paper testing only
 "use client";
 import React, { useRef } from "react";
-
-
 
 // 👉 html2pdf ని dynamic import చేయాలి (SSR avoid చేయడానికి)
 let html2pdf;
@@ -12,13 +12,19 @@ if (typeof window !== "undefined") {
 const QuestionPaper = ({ filters }) => {
   const printRef = useRef();
 
-  // 🖨️ Print Function
+  // 🖨️ Print Function (cross-device safe)
   const handlePrint = () => {
     if (!printRef.current) return;
 
-    const printWindow = window.open("", "_blank");
+    // Clone the printable area
+    const printContent = printRef.current.cloneNode(true);
+
+    // Create new print window
+    const printWindow = window.open("", "_blank", "width=800,height=600");
+
+    // Copy styles
     const styles = Array.from(
-      document.querySelectorAll('style, link[rel="stylesheet"]')
+      document.querySelectorAll("style, link[rel='stylesheet']")
     )
       .map((el) => el.outerHTML)
       .join("");
@@ -26,23 +32,27 @@ const QuestionPaper = ({ filters }) => {
     printWindow.document.write(`
       <html>
         <head>
-          <title>Question Paper Generator</title>
+          <title>Question Paper</title>
           ${styles}
           <style>
             @page { size: A4; margin: 10mm; }
-            body { margin: 0; padding: 0; }
+            body { margin: 0; padding: 0; font-family: sans-serif; }
             .no-print { display: none !important; }
           </style>
         </head>
-        <body>
-          ${printRef.current.innerHTML}
-          <script>
-            setTimeout(() => { window.print(); window.close(); }, 400);
-          </script>
-        </body>
+        <body></body>
       </html>
     `);
+
+    printWindow.document.body.appendChild(printContent);
     printWindow.document.close();
+
+    // ✅ Mobile Safari fix (slight delay)
+    printWindow.focus();
+    setTimeout(() => {
+      printWindow.print();
+      printWindow.close();
+    }, 500);
   };
 
   // 📥 Download PDF Function
@@ -73,11 +83,7 @@ const QuestionPaper = ({ filters }) => {
       {/* ✅ Preview Area */}
       <div
         ref={printRef}
-        className="
-          w-full max-w-[210mm] 
-          min-h-[297mm] bg-white p-4 sm:p-8 
-          rounded-lg shadow-md border relative
-        "
+        className="w-full max-w-[210mm] min-h-[297mm] bg-white p-4 sm:p-8 relative"
       >
         {/* ✅ Watermark */}
         <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
@@ -88,20 +94,20 @@ const QuestionPaper = ({ filters }) => {
           />
         </div>
 
-        {/* ✅ Header */}
-        <div className="text-center mb-4 border-b-2 pb-4">
-          <h1 className="text-lg sm:text-xl font-bold uppercase text-gray-900">
-            {filters.collegeName || "N/A"}
-          </h1>
-          <p className="text-sm sm:text-base font-semibold">
-            {filters.examType || "N/A"} - {filters.year || "N/A"} <br />
-            {filters.courseYear || "N/A"} <br />
-            Subject: {filters.subject || "N/A"} <br />
-            Date: {filters.date || "N/A"} &emsp;
-            Duration: {filters.duration || "N/A"} &emsp;
-            Max Marks: {filters.maxMarks || "N/A"}
-          </p>
-        </div>
+{/* ✅ Header (Center aligned) */}
+<div className="mb-4 border-b-2 pb-4 text-center">
+  <h1 className="text-lg sm:text-xl font-bold uppercase text-gray-900">
+    {filters.collegeName || "N/A"}
+  </h1>
+  <p className="text-sm sm:text-base font-semibold">
+    {filters.examType || "N/A"} - {filters.year || "N/A"} <br />
+    {filters.courseYear || "N/A"} <br />
+    Subject: {filters.subject || "N/A"} <br />
+    Date: {filters.date || "N/A"} &emsp;
+    Duration: {filters.duration || "N/A"} &emsp;
+    Max Marks: {filters.maxMarks || "N/A"}
+  </p>
+</div>
 
         {/* ✅ Section A */}
         <h3 className="mt-2 text-md text-center font-semibold underline">
@@ -158,7 +164,7 @@ const QuestionPaper = ({ filters }) => {
           onClick={handlePrint}
           className="w-full sm:w-auto px-4 py-2 bg-green-600 text-white text-sm sm:text-base rounded-lg shadow hover:bg-green-700"
         >
-          🖨️ Print / Export PDF
+          🖨️ Print
         </button>
       </div>
     </div>

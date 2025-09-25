@@ -84,8 +84,8 @@ const QuestionPaperForm = () => {
 
   return (
 
-<div className="w-full max-w-lg mt-16 mx-auto shadow-2xl rounded-2xl p-2 sm:p-2 overflow-hidden">
-  <h2 className="text-xl sm:text-xl mt-8 font-bold text-center text-gray-800 mb-4">
+<div className=" w-full max-w-4xl mt-28 mx-auto shadow-2xl rounded-2xl p-2 sm:p-2 border border-gray-500  overflow-hidden">
+  <h2 className="text-xl sm:text-xl mt-4 font-bold text-center text-gray-800 mb-2">
     📖 M&AT QUESTION PAPER GENERATOR
   </h2>
 
@@ -236,7 +236,7 @@ const QuestionPaperForm = () => {
   {/* Chapter Dropdown */}
   {selectedSubject && (
     <div className="my-8">
-      <label className="block text-base font-semibold text-gray-700 mb-2">
+      <label className="block text-base font-semibold text-gray-700 mb-4">
         Select Chapter:
       </label>
       <select
@@ -256,7 +256,7 @@ const QuestionPaperForm = () => {
 
   {/* Questions Section */}
   {selectedChapter && (
-    <div className="mt-6">
+    <div className="mt-4">
       <h3 className="text-xl font-bold text-blue-700 mb-4">
         ✍️ Short Answer Questions
       </h3>

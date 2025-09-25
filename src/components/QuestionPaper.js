@@ -1,4 +1,5 @@
 // src/components/QuestionPaper.js
+//for unit testing only
 import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import html2pdf from "html2pdf.js";
@@ -62,65 +63,66 @@ const QuestionPaper = ({ filters }) => {
         ref={printRef}
         className="w-full max-w-4xl lg:w-[210mm] bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-300 relative print:w-full print:shadow-none print:border-0"
       >
-        {/* HEADER */}
-        <div className="text-center mt-2 sm:mt-4 border-b-2 pb-4">
-          <h1 className="text-2xl sm:text-3xl font-bold font-serif uppercase text-gray-900 tracking-wide">
-            {filters.collegeName || "N/A"}
-          </h1>
-          <p className="text-base sm:text-lg font-medium text-gray-700 leading-relaxed mt-2">
-            {filters.examType || "N/A"} - {filters.year || "N/A"} <br />
-            {filters.courseYear || "N/A"} <br />
-            Subject: {filters.subject || "N/A"} <br />
-            Date: {filters.date || "N/A"} &emsp; Duration:{" "}
-            {filters.duration || "N/A"} &emsp; Max Marks:{" "}
-            {filters.maxMarks || "N/A"}
-          </p>
-        </div>
+       {/* ✅ Header (Center aligned) */}
+<div className="mb-4 border-b-2 pb-4 text-center">
+  <h1 className="text-lg sm:text-xl font-bold uppercase text-gray-900">
+    {filters.collegeName || "N/A"}
+  </h1>
+  <p className="text-sm sm:text-base font-semibold">
+    {filters.examType || "N/A"} - {filters.year || "N/A"} <br />
+    {filters.courseYear || "N/A"} <br />
+    Subject: {filters.subject || "N/A"} <br />
+    Date: {filters.date || "N/A"} &emsp;
+    Duration: {filters.duration || "N/A"} &emsp;
+    Max Marks: {filters.maxMarks || "N/A"}
+  </p>
+</div>
 
-        {/* SECTION - A */}
-        <h3 className="mt-4 text-lg text-center font-semibold underline tracking-wide text-gray-800">
-          SECTION - A
-        </h3>
-        <p className="text-gray-700 text-sm sm:text-base ml-4 mt-1">
-          (i) Answer All Questions ✍️ &nbsp;&nbsp;(ii) Each Question Carries 2
-          Marks 🏆 &ensp;
-          {shortQuestions.length} × 2 = {shortQuestions.length * 2}
-        </p>
+{/* ✅ Body */}
+<div className="text-left">
+  {/* ✅ Section A (heading center, content left) */}
+  <h3 className="mt-2 text-md font-semibold underline text-center">
+    SECTION - A
+  </h3>
+  <p className="text-gray-900 text-sm sm:text-base">
+    (i) Answer All Questions ✍️ (ii) Each = 2 Marks 🏆 &emsp;
+    {shortQuestions.length} × 2 = {shortQuestions.length * 2}
+  </p>
+  <ol className="pl-5 list-outside text-sm sm:text-base">
+    {shortQuestions.map((q, index) => (
+      <li key={q._id} className="mt-2">
+        {index + 1}. {q.questionText} <br />
+        <span className="text-gray-700 italic">{q.questionTextTelugu}</span>
+      </li>
+    ))}
+  </ol>
 
-        <ol className="pl-6 list-decimal question-list text-gray-900 text-base leading-relaxed mt-2 space-y-2">
-          {shortQuestions.map((q) => (
-            <li key={q._id}>
-              {q.questionText} <br />
-              <span className="text-gray-700 italic">{q.questionTextTelugu}</span>
-            </li>
-          ))}
-        </ol>
+  {/* ✅ Section B (heading center, content left) */}
+  <h3 className="mt-4 text-md font-semibold underline text-center">
+    SECTION - B
+  </h3>
+  <p className="text-gray-900 text-sm sm:text-base">
+    (i) Answer Any Five Questions ✍️ (ii) Each = 5 Marks 🏆 &emsp;
+    3 × 5 = 15
+  </p>
+  <ol
+    className="pl-5 list-outside text-sm sm:text-base"
+    start={shortQuestions.length + 1}
+  >
+    {longQuestions.slice(0, 8).map((q, index) => (
+      <li key={q._id} className="mt-2">
+        {shortQuestions.length + index + 1}. {q.questionText} <br />
+        <span className="text-gray-700 italic">{q.questionTextTelugu}</span>
+      </li>
+    ))}
+  </ol>
 
-        {/* SECTION - B */}
-        <h3 className="mt-6 text-lg text-center font-semibold underline tracking-wide text-gray-800">
-          SECTION - B
-        </h3>
-        <p className="text-gray-700 text-sm sm:text-base ml-4 mt-1">
-          (i) Answer Any Three Questions ✍️ &nbsp;&nbsp;(ii) Each Question
-          Carries 5 Marks 🏆 &ensp; 3 × 5 = 15
-        </p>
+  {/* ✅ Footer */}
+  <div className="mt-6 sm:mt-10 border-t pt-4 text-center text-gray-900 text-sm sm:text-base">
+    ********* All the Best *********
+  </div>
+</div>
 
-        <ol
-          className="pl-6 list-decimal question-list text-gray-900 text-base leading-relaxed mt-2 space-y-3"
-          start={shortQuestions.length + 1}
-        >
-          {longQuestions.slice(0, 5).map((q) => (
-            <li key={q._id}>
-              {q.questionText} <br />
-              <span className="text-gray-700 italic">{q.questionTextTelugu}</span>
-            </li>
-          ))}
-        </ol>
-
-        {/* FOOTER */}
-        <div className="mt-10 border-t pt-4 text-center text-gray-800 font-semibold text-sm sm:text-base">
-          ********* All the Best *********
-        </div>
       </div>
 
       {/* Action Buttons */}
@@ -129,7 +131,7 @@ const QuestionPaper = ({ filters }) => {
           onClick={handlePrint}
           className="px-6 py-2 bg-green-600 text-white font-semibold rounded-full shadow-md hover:scale-105 transition-all"
         >
-          🖨️ Print / Export PDF
+          🖨️ Print 
         </button>
         <button
           onClick={handleDownload}

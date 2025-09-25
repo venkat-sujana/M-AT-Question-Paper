@@ -157,7 +157,7 @@ const CRUDComponent = () => {
   return (
     <div className="min-h-screen bg-cyan-100 p-6">
       <h1 className="text-3xl mt-16 font-bold text-center text-gray-800 mb-8">
-        M&AT CRUD OPERATIONS
+        M&AT - Manage Subjects, Chapters, and Questions
       </h1>
 
       {/* Add Subject Section */}
