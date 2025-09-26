@@ -1,8 +1,9 @@
 //app/src/components/QuestionPaperForm.js
+
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Question from "./Question";
-import QuestionPaper from "./QuestionPaper";
+import QuarterlyHalfPrepublic from "./QuarterlyHalfPrepublic";
+import UnitTest from "./UnitTest";
 const QuestionPaperForm = () => {
   const [subjects, setSubjects] = useState([]);
   const [chapters, setChapters] = useState([]);
@@ -22,6 +23,7 @@ const QuestionPaperForm = () => {
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [maxMarks, setMaxMarks] = useState("");
   const [duration, setDuration] = useState("");
+  const [session, setSession] = useState("");
 
   useEffect(() => {
     axios
@@ -79,13 +81,14 @@ const QuestionPaperForm = () => {
       maxMarks,
       duration,
       selectedQuestions,
+      session,
     });
   };
 
   return (
 
-<div className=" w-full max-w-4xl mt-28 mx-auto shadow-2xl rounded-2xl p-2 sm:p-2 border border-gray-500  overflow-hidden">
-  <h2 className="text-xl sm:text-xl mt-4 font-bold text-center text-gray-800 mb-2">
+<div className=" w-full max-w-8xl mt-28 mx-auto shadow-4xl rounded-2xl p-2 sm:p-2 border border-gray-500  overflow-hidden">
+  <h2 className="text-xl sm:text-xl mt-2 font-bold text-center text-gray-800 mb-2">
     📖 M&AT QUESTION PAPER GENERATOR
   </h2>
 
@@ -144,6 +147,13 @@ const QuestionPaperForm = () => {
           onChange: (e) => setCourseYear(e.target.value),
           options: ["", "FIRST YEAR M&AT", "SECOND YEAR M&AT"],
           id: "courseYear",
+        },
+          {
+          label: "Session:",
+          value: session,
+          onChange: (e) => setSession(e.target.value),
+          options: ["", "FN", "AN"],
+          id: "session",
         },
       ].map(({ label, value, onChange, options, id }) => (
         <div key={id}>
@@ -214,13 +224,13 @@ const QuestionPaperForm = () => {
       ))}
 
       <div>
-        <label className="block text-base font-semibold text-gray-700 mb-2">
+        <label className="block text-base font-semibold text-gray-700 ">
           Select Subject:
         </label>
         <select
           value={selectedSubject}
           onChange={(e) => handleSubjectChange(e.target.value)}
-          className="w-full p-3 border-none rounded-xl mb-4 shadow-lg focus:ring-2 focus:ring-indigo-400 transition-all bg-gray-50"
+          className="w-full p-3 border-none rounded-xl mb-2 shadow-lg focus:ring-2 focus:ring-indigo-400 transition-all bg-gray-50"
         >
           <option value="">-- Select Subject --</option>
           {subjects.map((subject) => (
@@ -256,7 +266,7 @@ const QuestionPaperForm = () => {
 
   {/* Questions Section */}
   {selectedChapter && (
-    <div className="mt-4">
+    <div className="mt-2">
       <h3 className="text-xl font-bold text-blue-700 mb-4">
         ✍️ Short Answer Questions
       </h3>
@@ -326,9 +336,9 @@ const QuestionPaperForm = () => {
   {/* Render QuestionPaper or Question based on examType */}
   {filters &&
     (["UNIT-1", "UNIT-2", "UNIT-3", "UNIT-4"].includes(filters.examType) ? (
-      <QuestionPaper filters={filters} />
+      <UnitTest filters={filters} />
     ) : (
-      <Question filters={filters} />
+      <QuarterlyHalfPrepublic filters={filters} />
     ))}
 </div>
 

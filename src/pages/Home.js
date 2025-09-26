@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -13,13 +14,13 @@ const Home = () => {
             </svg>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-3 tracking-tight text-center">
-            Question Paper Generator
+            M&AT Question Paper Generator
           </h1>
           <p className="text-lg sm:text-xl text-blue-100 mb-5 text-center max-w-xl">
             Instantly generate professional, custom question papers for any subject or class
           </p>
           <button className="bg-white text-indigo-700 px-8 py-3 rounded-md font-bold shadow hover:bg-indigo-50 transition-colors">
-            Start Now
+            <Link to="/dashboard">Get Started</Link>
           </button>
         </div>
       </section>
@@ -29,24 +30,26 @@ const Home = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Custom Templates */}
           <div className="bg-indigo-200 rounded-xl shadow hover:shadow-lg p-8 text-center transition group border border-gray-100">
-            <div className="flex flex-col items-center mb-5">
-              <span className="bg-indigo-100 text-indigo-500 rounded-full p-4 mb-2 text-3xl transition group-hover:bg-indigo-600 group-hover:text-white">📝</span>
+            <div className="flex flex-col items-center mb-5 cursor-pointer">
+              <span className="bg-indigo-100 text-indigo-500 rounded-full p-4 mb-2 text-3xl transition group-hover:bg-indigo-600 group-hover:text-white">
+                <Link to="/QuestionPaperInputForm">📝</Link></span>
             </div>
-            <h3 className="text-xl font-semibold mb-2">Custom Templates</h3>
+            <h3 className="text-xl font-semibold mb-2">Create New Question Paper Templates</h3>
             <p className="text-gray-600">Design once, reuse anytime for any pattern or exam.</p>
           </div>
           {/* Smart Question Bank */}
           <div className="bg-green-200 rounded-xl shadow hover:shadow-lg p-8 text-center transition group border border-gray-100">
             <div className="flex flex-col items-center mb-5">
-              <span className="bg-indigo-100 text-indigo-500 rounded-full p-4 mb-2 text-3xl transition group-hover:bg-indigo-600 group-hover:text-white">📚</span>
+              <span className="bg-indigo-100 text-indigo-500 rounded-full cursor-pointer p-4 mb-2 text-3xl transition group-hover:bg-indigo-600 group-hover:text-white">
+                <Link to="/crud">📚</Link></span>
             </div>
-            <h3 className="text-xl font-semibold mb-2">Smart Question Bank</h3>
+            <h3 className="text-xl font-semibold mb-2">Manage Database Records</h3>
             <p className="text-gray-600">Thousands of well-classified questions with instant search & filter.</p>
           </div>
           {/* AI Powered */}
           <div className="bg-blue-200 rounded-xl shadow hover:shadow-lg p-8 text-center transition group border border-gray-100">
             <div className="flex flex-col items-center mb-5">
-              <span className="bg-indigo-100 text-indigo-500 rounded-full p-4 mb-2 text-3xl transition group-hover:bg-indigo-600 group-hover:text-white">🤖</span>
+              <span className="bg-indigo-100 text-indigo-500 rounded-full cursor-pointer p-4 mb-2 text-3xl transition group-hover:bg-indigo-600 group-hover:text-white">🤖</span>
             </div>
             <h3 className="text-xl font-semibold mb-2">AI-Powered Papers</h3>
             <p className="text-gray-600">Balanced, syllabus-fit papers – generated in seconds using AI.</p>

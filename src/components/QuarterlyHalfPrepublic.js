@@ -1,5 +1,5 @@
 // frontend/src/components/Question.js
-//for Quarterly,Half yearly,prepublic paper testing only
+//// Main Form Component to select subject, chapter, questions for Quarterly,Half yearly,prepublic 
 "use client";
 import React, { useRef } from "react";
 
@@ -79,11 +79,11 @@ const QuestionPaper = ({ filters }) => {
   const longQuestions = filters.selectedQuestions.filter((q) => q.type === "long");
 
   return (
-    <div className="flex flex-col items-center p-4 sm:p-6 bg-gray-100 min-h-screen">
+    <div className="flex flex-col items-center p-4 sm:p-6 bg-gray-100 min-h-screen ">
       {/* ✅ Preview Area */}
       <div
         ref={printRef}
-        className="w-full max-w-[210mm] min-h-[297mm] bg-white p-4 sm:p-8 relative"
+        className="w-full  min-h-[297mm] bg-white p-4 sm:p-8 relative max-w-6xl"
       >
         {/* ✅ Watermark */}
         <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
@@ -95,7 +95,7 @@ const QuestionPaper = ({ filters }) => {
         </div>
 
 {/* ✅ Header (Center aligned) */}
-<div className="mb-4 border-b-2 pb-4 text-center">
+<div className="mb-2 border-b-2 pb-4 text-center">
   <h1 className="text-lg sm:text-xl font-bold uppercase text-gray-900">
     {filters.collegeName || "N/A"}
   </h1>
@@ -103,7 +103,7 @@ const QuestionPaper = ({ filters }) => {
     {filters.examType || "N/A"} - {filters.year || "N/A"} <br />
     {filters.courseYear || "N/A"} <br />
     Subject: {filters.subject || "N/A"} <br />
-    Date: {filters.date || "N/A"} &emsp;
+    Date: {filters.date || "N/A"}&nbsp;{filters.session} &emsp;
     Duration: {filters.duration || "N/A"} &emsp;
     Max Marks: {filters.maxMarks || "N/A"}
   </p>
@@ -114,7 +114,7 @@ const QuestionPaper = ({ filters }) => {
           SECTION - A
         </h3>
         <p className="text-gray-900 text-sm sm:text-base">
-          (i) Answer All Questions ✍️ (ii) Each = 2 Marks 🏆 &emsp;
+          (i) Answer All Questions ✍️ (ii) Each Question carries  2 Marks 🏆 
           {shortQuestions.length} × 2 = {shortQuestions.length * 2}
         </p>
         <ol className="pl-5 list-outside text-sm sm:text-base">
@@ -131,7 +131,7 @@ const QuestionPaper = ({ filters }) => {
           SECTION - B
         </h3>
         <p className="text-gray-900 text-sm sm:text-base">
-          (i) Answer Any Five Questions ✍️ (ii) Each = 6 Marks 🏆 &emsp;
+          (i) Answer Any Five Questions ✍️ (ii) Each Question carries &emsp;&emsp; 6 Marks 🏆 
           5 × 6 = 30
         </p>
         <ol

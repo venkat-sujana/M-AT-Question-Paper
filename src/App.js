@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import QuestionPaperForm from "./components/QuestionPaperForm";
-import QuestionPaper from "./components/QuestionPaper";
+import UnitTest from "./components/UnitTest";
 import QuestionPaperInputForm from "./components/QuestionPaperInputForm";
 import CRUDComponent from "./components/CRUDComponent";
 import Dashboard from "./components/Dashboard";
@@ -26,7 +26,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
 
             {/* Question Paper Input Form */}
             <Route
@@ -47,7 +47,7 @@ function App() {
                     }}
                   />
 
-                  {filters && <QuestionPaper filters={filters} />}
+                  {filters && <UnitTest filters={filters} />}
                 </div>
               }
             />

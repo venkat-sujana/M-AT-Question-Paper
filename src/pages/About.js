@@ -2,20 +2,20 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center mt-16 justify-center p-4">
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl w-full p-8">
+    <div className="min-h-screen  flex flex-col items-center mt-20 justify-center p-4">
+      <div className="bg-teal-100  rounded-lg overflow-hidden max-w-4xl border border-gray-500 shadow-6xl w-full p-8">
         {/* అవతార్ మరియు టైటిల్ */}
         <div className="flex flex-col items-center mb-6">
         <div className="w-32 h-32 rounded-full overflow-hidden">
         <img
-            src="images/venkat.png" // Replace with your image URL
+            src="images/venkat1.png" // Replace with your image URL
             alt="Avatar"
             className="w-full h-full object-cover"
             
         />
         
         </div>
-        <p className="text-4xl font-bold text-gray-800 text-black-700 mb-4">Fullstack Developer</p>
+        <p className="text-xl font-bold text-gray-800 text-black-700 mb-4">Fullstack Developer</p>
           <h1 className="text-xl  text-gray-800">About Me</h1>
         </div>
 

@@ -1,5 +1,5 @@
 // src/components/QuestionPaper.js
-//for unit testing only
+// Main Form Component to select subject, chapter, questions for unit-I, II, III, IV 
 import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import html2pdf from "html2pdf.js";
@@ -58,13 +58,13 @@ const QuestionPaper = ({ filters }) => {
   );
 
   return (
-    <div className="flex flex-col items-center p-4 sm:p-6 bg-gradient-to-br from-gray-100 to-gray-200 min-h-screen">
+    <div className="flex flex-col items-center p-4 sm:p-6 bg-gradient-to-br from-gray-100 to-gray-200 min-h-screen ">
       <div
         ref={printRef}
-        className="w-full max-w-4xl lg:w-[210mm] bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-300 relative print:w-full print:shadow-none print:border-0"
+        className="w-full  max-w-6xl bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-300 relative print:w-full print:shadow-none print:border-0"
       >
        {/* ✅ Header (Center aligned) */}
-<div className="mb-4 border-b-2 pb-4 text-center">
+<div className="mb-2 border-b-2 pb-4 text-center">
   <h1 className="text-lg sm:text-xl font-bold uppercase text-gray-900">
     {filters.collegeName || "N/A"}
   </h1>
@@ -72,7 +72,7 @@ const QuestionPaper = ({ filters }) => {
     {filters.examType || "N/A"} - {filters.year || "N/A"} <br />
     {filters.courseYear || "N/A"} <br />
     Subject: {filters.subject || "N/A"} <br />
-    Date: {filters.date || "N/A"} &emsp;
+    Date: {filters.date || "N/A"}&nbsp;{filters.session} &emsp;
     Duration: {filters.duration || "N/A"} &emsp;
     Max Marks: {filters.maxMarks || "N/A"}
   </p>
@@ -85,7 +85,7 @@ const QuestionPaper = ({ filters }) => {
     SECTION - A
   </h3>
   <p className="text-gray-900 text-sm sm:text-base">
-    (i) Answer All Questions ✍️ (ii) Each = 2 Marks 🏆 &emsp;
+    (i) Answer All Questions ✍️ (ii) Each Question carries&emsp;&emsp;  2 Marks 🏆 
     {shortQuestions.length} × 2 = {shortQuestions.length * 2}
   </p>
   <ol className="pl-5 list-outside text-sm sm:text-base">
@@ -102,7 +102,7 @@ const QuestionPaper = ({ filters }) => {
     SECTION - B
   </h3>
   <p className="text-gray-900 text-sm sm:text-base">
-    (i) Answer Any Five Questions ✍️ (ii) Each = 5 Marks 🏆 &emsp;
+    (i) Answer All Questions ✍️ (ii) Each Question carries&emsp;&emsp;5 Marks 🏆
     3 × 5 = 15
   </p>
   <ol
