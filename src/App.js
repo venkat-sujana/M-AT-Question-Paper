@@ -21,9 +21,9 @@ function App() {
         <Sidebar />
 
         {/* Main Content */}
-        <div className="flex-1 p-10">
+        <div className="flex-1 p-4 mt-8">
           <Routes>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/dashboard" element={<Dashboard />} />

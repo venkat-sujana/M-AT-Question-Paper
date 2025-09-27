@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <nav className="bg-white shadow-sm fixed top-0 left-0 w-full z-50 ">
       <div className="mx-auto max-w-7xl flex items-center justify-between mt-8 p-4">
-        <Link to="/home" className="text-xl font-bold text-blue-500  ">M&AT</Link>
+        <Link to="/" className="text-xl font-bold text-blue-500  ">M&AT</Link>
         <button className="md:hidden text-2xl cursor-pointer" onClick={() => setOpen(!open)}>
           ☰
         </button>

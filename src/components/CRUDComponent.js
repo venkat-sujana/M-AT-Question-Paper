@@ -155,8 +155,8 @@ const CRUDComponent = () => {
   );
 
   return (
-    <div className="min-h-screen bg-cyan-100 p-6">
-      <h1 className="text-3xl mt-16 font-bold text-center text-gray-800 mb-8">
+    <div className="min-h-screen bg-cyan-100 mt-10 p-6">
+      <h1 className="text-2xl mt-16 p-10 font-bold text-center text-gray-800 ">
         M&AT - Manage Subjects, Chapters, and Questions
       </h1>
 
@@ -164,7 +164,7 @@ const CRUDComponent = () => {
       <div className="bg-white p-6 rounded-lg shadow-md mb-8">
         <h2 className="text-xl font-semibold mb-4"> Add Subject</h2>
         <div className="flex">
-          <input
+          <input 
             type="text"
             value={newSubject}
             onChange={(e) => setNewSubject(e.target.value)}

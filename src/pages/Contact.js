@@ -2,17 +2,17 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen mt-10 bg-gray-100 flex flex-col items-center justify-center p-2">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl w-full p-6">
-        <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">Contact Me</h1>
+        <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">Contact Me</h1>
 
         {/* కాంటాక్ట్ ఇన్ఫో */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <h2 className="text-xl font-semibold text-gray-700 mb-2 text-center" >Phone Number</h2>
-            <p className="text-lg text-gray-600 text-center">8985122961</p>
+          <div className="bg-gray-300 p-4 rounded-lg">
+            <h2 className="text-xl font-bold text-gray-800 mb-2 text-center" >Phone Number</h2>
+            <p className="text-lg text-gray-800 text-center">8985122961</p>
           </div>
-          <div className="bg-gray-50 p-4 rounded-lg">
+          <div className="bg-gray-300 p-4 rounded-lg">
             <h2 className="text-xl font-semibold text-gray-700 mb-2 text-center">E-Mail</h2>
             <p className="text-lg text-gray-600 text-center">venkat.bvp34@gmail.com</p>
           </div>

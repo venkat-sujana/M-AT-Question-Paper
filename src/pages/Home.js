@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-tr from-indigo-50 to-white mt-8">
+    <div className="min-h-screen  flex flex-col bg-gradient-to-tr from-indigo-50 to-white mt-8">
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center py-16 px-4 bg-gradient-to-br from-indigo-600 to-blue-400">
-        <div className="max-w-3xl w-full flex flex-col items-center">
+      <section className="flex rounded-xl mt-8 flex-col items-center justify-center py-16 px-4 bg-gradient-to-br from-indigo-600 to-blue-400">
+        <div className="max-w-3xl  w-full flex flex-col items-center">
           <div className="mb-5">
             <svg className="w-16 h-16 text-white drop-shadow-lg" fill="none" viewBox="0 0 64 64" stroke="currentColor">
               <rect x="8" y="10" width="48" height="44" rx="6" strokeWidth="2.5" className="stroke-white" fill="none"/>
